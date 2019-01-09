@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>爱的旅行</title>
+<link href="css/default.css" rel="stylesheet" />
+<link href="css/history.css" rel="stylesheet" />
+<style>
+.wrap>img{
+	width:424px;
+	height:600px;
+}
+h4{
+	width:450px;
+}
+</style>
+<!-- <script src="//yanhaijing.com/assets/plugin/tongji/baidu.js"></script> -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden_dev.js"></script>
+<script type="text/javascript" src="js/functions_dev.js"></script>
+</head>
+<body>
+	<!-- <audio controls="controls" loop="loop" autoplay='autoplay'>
+		<source src="./myimg/renxi.mp3" type="audio/mpeg" />
+	</audio> -->
+	<audio autoplay="autopaly" loop="loop">
+		<source src="./myimg/renxi.mp3" type="audio/mp3" />
+	</audio>
+<!-- 代码 开始 -->
+<div id="mainDiv">
+		<div id="content" style="width: 1110px; height: 625px; margin-top: 57px; margin-left: 165px;">
+			<div id="loveHeart">
+				<canvas id="garden" width="670" height="625"></canvas>
+				<div id="words">
+					<div id="messages">
+						We love so long
+						<div id="elapseClock"><span class="digit">0</span> 年 <span class="digit">0</span> 月 <span class="digit">0</span> 天 <span class="digit">0</span> 时 <span class="digit">0</span> 分 <span class="digit">0</span> 秒</div>
+					</div>
+					<div id="loveu">
+						Love you forever lixin!<br> 
+						<div class="signature">——<a href="javascript:;" target="">闫东亮</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2013, 10, 2);
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 100);
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+<div class="head-warp">
+  <div class="head">
+        <div class="nav-box">
+          <ul>
+              <li class="cur" style="text-align:center; font-size:62px; font-family:'微软雅黑', '宋体';color:#fff">让我们开始爱的旅程吧...</li>
+          </ul>
+        </div>
+  </div>
+</div>
+<div class="main">
+	<div class="history">
+		<div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2013</a></h2>
+				<li class="green">
+					<h3>10.03</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								那天，我们相遇...
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2013-10-01.jpg">
+								<p>那天，I miss U…
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>									
+			</ul>
+	    </div><!-- .history-date --> 
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2013年</a></h2>
+				<li class="green">
+					<h3>11.05</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								那天，我们相知...
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/203-11-05.jpg">
+								<p>爱，能持续多久？
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2013年</a></h2>
+				<li class="green">
+					<h3>12.24</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								还记得我们在一起的第一个圣诞节吗？
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2013-12-24.jpg">
+								<p>从开始到结束，需要多久？
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2014年</a></h2>
+				<li class="green">
+					<h3>02.23</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								这一年，我们一起在北京，在圆明园...
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2014-02-23.jpg">
+								<p>如果我带来的只是灾难，你是否依然有勇气陪我走完？
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2014年</a></h2>
+				<li class="green">
+					<h3>07.06</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								能再给我一次机会么？
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2014-07-06.jpg">
+								<p>能再给我一次机会么？
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2014年</a></h2>
+				<li class="green">
+					<h3>09.27</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								因为你
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2014-09-27.jpg">
+								<p>因为你，我的世界才精彩。
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2014年</a></h2>
+				<li class="green">
+					<h3>10.06</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								我何时才能够得到你的回应？
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2014-10-06.jpg">
+								<p>我何时才能够得到你的回应？
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2014年</a></h2>
+				<li class="green">
+					<h3>11.16</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								我们在一起一周年啦啦啦…
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2014-11-16.jpg">
+								<p>只为搜索你的身影…
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2015年</a></h2>
+				<li class="green">
+					<h3>03.12</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								风尘仆仆，只为看年一眼...
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2015-03-12.jpg">
+								<p>爱，让她安静的离开…
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2015年</a></h2>
+				<li class="green">
+					<h3>09.19</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								只是因为你
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2015-09-19.jpg">
+								<p>让自己变完美，只是因为你。
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2016年</a></h2>
+				<li class="green">
+					<h3>00.09</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								删除记忆
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2016-09-09.jpg">
+								<p>删除记忆？可是，我没有勇气…
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div><!-- .history-date -->
+	    <div class="history-date">
+	      	<ul>
+				<h2 class="first"><a href="#nogo">2018年</a></h2>
+				<li class="green">
+					<h3>10.11</h3>
+					<dl>
+						<dt>
+							<div class="feed_arrow">
+							</div>		
+							<h4>
+								该如何控制自己才能够不去想你？
+							</h4>	
+							<div class="wrap">	
+								<img src="./myimg/2018-10-11.jpg">
+								<p>该如何控制自己才能够不去想你？
+								</p>
+							</div>									 
+						</dt>
+					</dl>
+				</li>					
+			</ul>
+	    </div>
+    </div>		
+</div>
+
+<script src="js/jquery.js"></script> 
+<script src="js/main.js"></script></body>
+</html>
+<script>
+	// var i = 0;
+	// document.documentElement.scrollTop = 0;
+	// setTimeout(()=>{
+	// 	setInterval(()=>{
+	// 		i+= 1;
+	// 		document.documentElement.scrollTop = i;
+	// 		// console.log(document.documentElement.scrollHeight);
+	// 		if(i === document.documentElement.scrollHeight){
+	// 			document.documentElement.scrollTop = 0;
+	// 			i = 0;
+	// 		}
+	// 	},10)
+	// },13000)
+</script>
